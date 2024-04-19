@@ -35,12 +35,17 @@ This project explores the application of Q-learning, a reinforcement learning te
 - Hold function
 
 ## **Demo**
+We've trained 2 models to battle with each other.
+The left one is actor critic model, and the right one is DQN model.
+Since the winner is DQN model so it became our final model.
 
-### Single player mode
-![single player](imgs/demo_single.gif)
+### Fight video
 
-### Two players mode
-![two player](imgs/demo_double.gif)
+![fight](fight.gif)
+
+### DQN model in single-player mode
+
+![DQN model](DQN.gif)
 
 ## **Report**
 For a detailed analysis of our methodology and findings, please refer to our [project report](https://drive.google.com/file/d/your_report_link_here).
