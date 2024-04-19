@@ -1,7 +1,6 @@
 # **TetrisBattle**
 
-This is an AI model that can play Tetris Battle.
-We use Q-learning to train the model.
+This is a Tetris Battle AI model, which is trained with Q-learning.
 
 It is a highly restored version of original game, with features as follow: <br/>
 - 2 players <br/>
@@ -74,8 +73,7 @@ Note: You can define your reward function in `reward_func` in `tetris_interface.
 This work is based on the following repos: <br/>
 1. https://github.com/xuyuwei/tetris-battle
 
-## **Contact**
-Yi-Lin Sung, r06942076@ntu.edu.tw
+
 
 ## **規則**
 ### 遊戲結束(跳出main loop)方式: <br/>
