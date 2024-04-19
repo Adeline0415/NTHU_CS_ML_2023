@@ -1,48 +1,56 @@
-# **TetrisBattle**
+# **TetrisBattle AI with Q-learning**
 
-This is a Tetris Battle AI model, which is trained with Q-learning.
+This project explores the application of Q-learning, a reinforcement learning technique, to train an AI model for playing Tetris Battle. The focus is on the dueling mode of Tetris, where two players compete and can harass opponents by adding rows to their board.
 
-It is a highly restored version of original game, with features as follow: <br/>
-- 2 players <br/>
-- UI  <br/>
-- T spin and Tetris <br/>
-- back to back <br/>
-- garbage lines <br/>
-- alarm for attacks <br/>
+## **Methodology**
 
-Note that some of them are credited to https://github.com/xuyuwei/tetris-battle.
+- Deep Q Network (DQN) as the primary reinforcement learning algorithm
+- State representation refined by pre-simulating possible block movements
+  - Focus on block orientation and final landing position
+  - Reduced state space while retaining essential information (height, lines cleared, holes, bumpiness)
+- Network architecture
+  - Simple feed-forward neural network
+  - Fully connected linear layers with ReLU activation functions
+- Training techniques
+  - Experience replay
+  - Epsilon-greedy policy
 
-The repository contains:
+## **Training Process**
 
-1. Single player mode
-2. Two players mode
-3. Environments for training AI agent, wrapped as OpenAI [gym](https://github.com/openai/gym) environment. (e.g. `tetris_env.py`)
+1. Single-player mode
+   - Fitness function as the initial reward to encourage tidy block stacking
+   - Reward function changed to the original game score once the model learned to clear lines
+2. Double-player mode
+   - Model trained by playing against itself
+   - Reward based on the game outcome (winner: 1 point, loser: 0 points)
+
+## **Features**
+
+- 2-player dueling mode
+- UI
+- T-spin and Tetris
+- Back-to-back
+- Garbage lines
+- Alarm for attacks
+- Hold function
 
 ## **Demo**
 
-
 ### Single player mode
-
-demo the fuctions: tspin and back to back.
-
 ![single player](imgs/demo_single.gif)
 
 ### Two players mode
-
-demo the functions: tetris, combo and ko.
-
 ![two player](imgs/demo_double.gif)
 
+## **Report**
+For a detailed analysis of our methodology and findings, please refer to our [project report](https://drive.google.com/file/d/your_report_link_here).
+
 ## **Requirements**
-```
-python3 
-pygame 
-Linux system 
-```
+- Python 3
+- Pygame
+- Linux system
 
-Note that pygame might have conflicts with macOS. <br/>
-
-In my case, the program works well on macOS 10.14.6 with `pygame==2.0.0.dev1` and `python==3.7.4`. However, it breaks with `pygame==1.9.4`.
+Note that Pygame might have conflicts with macOS. The program has been tested on macOS 10.14.6 with `pygame==2.0.0.dev1` and `python==3.7.4`.
 
 ## **Installation**
 ```
@@ -50,52 +58,16 @@ python setup.py develop
 ```
 
 ## **Usage**
-
 ### Single player mode
-
 ```
 python -m game.tetris_game --mode single
 ```
 
 ### Two players mode
-
 ```
 python -m game.tetris_game --mode double
 ```
 
-### Usage for environments
-Please refer to `example.py`.
-
-Note: You can define your reward function in `reward_func` in `tetris_interface.py`
-
-## **Disclaimer**
-
-This work is based on the following repos: <br/>
+## **Acknowledgements**
+This work is based on the following repository:
 1. https://github.com/xuyuwei/tetris-battle
-
-
-
-## **規則**
-### 遊戲結束(跳出main loop)方式: <br/>
-1. 按下右上叉叉(evnt.type == pygame.QUIT)
-2. 有人死亡(堆疊方塊觸頂)
-3. 計時結束後
-### 勝負: <br/>
-1. 若有人死，死者敗
-2. 比誰的send lines多
-3. 比誰頂層較低
-### send line計算方式: <br/>
-**1. cleared:** <br/>
-即消去的行數， <br/>
-2行: +1分 <br/>
-3行: +2分 <br/>
-4行: +4分 (Tetris) <br/>
-**2. combo:** <br/>
-即連續幾次每次有消行， <br/>
-+(combo+1)/2分 (最多4分) <br/>
-**3. T-spin:** <br/>
-用T型最後選轉卡入縫隙並消除兩行 <br/>
-+3分 <br/>
-**4. back to back:** <br/>
-兩次相鄰的消去均為"Tetris"或"T-spin" <br/>
-+2分 <br/>
