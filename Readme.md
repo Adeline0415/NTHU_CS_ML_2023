@@ -1,6 +1,7 @@
 # **TetrisBattle**
 
-This project is to reproduce the popular Facebook game -- Tetris Battle (Not available playing online now). I also offer the environment of the game for training AI agent.
+This is an AI model that can play Tetris Battle.
+We use Q-learning to train the model.
 
 It is a highly restored version of original game, with features as follow: <br/>
 - 2 players <br/>
