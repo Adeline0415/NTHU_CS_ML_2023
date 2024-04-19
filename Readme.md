@@ -48,7 +48,7 @@ Since the winner is DQN model so it became our final model.
 ![DQN model](DQN.gif)
 
 ## **Report**
-For a detailed analysis of our methodology and findings, please refer to our [project report](https://drive.google.com/file/d/your_report_link_here).
+For a detailed analysis of our methodology and findings, please refer to our [project report](https://drive.google.com/file/d/1JDNyLUU98lqahFh3iL6iloH3DjAslflS/view?usp=sharing).
 
 ## **Requirements**
 - Python 3
